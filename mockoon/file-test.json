@@ -1,0 +1,230 @@
+{
+  "uuid": "eb8d8703-5b9d-419e-ad98-ce23c3006cdb",
+  "lastMigration": 27,
+  "name": "File test",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "5603cfc8-1b28-4392-991d-2d09eef08565",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "file/:fileName",
+      "responses": [
+        {
+          "uuid": "c592d7f7-5186-4727-a935-7688a553337f",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\markdown\\{{urlParam 'fileName'}}",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "a754637d-9b2d-4478-8834-d706b8803352",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "image/:imageName",
+      "responses": [
+        {
+          "uuid": "b55f0933-ef95-4562-b083-9ec36db38944",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\markdown\\images\\{{urlParam 'imageName'}}",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1212c896-2a38-4a84-ba30-90d8ab63fc55",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "slides",
+      "responses": [
+        {
+          "uuid": "24298a27-52bc-451d-af60-ecf2df0ff703",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "cwzv",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "05ec23b3-c7dd-4283-9caf-c3e295ae5444",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "dist",
+      "responses": [
+        {
+          "uuid": "20762e84-201a-4040-b799-e46d72f99b45",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\dist\\index.html",
+          "databucketID": "",
+          "sendFileAsBody": true,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3c375db2-b149-4a38-b04c-60619151b586",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "assets/:assetName",
+      "responses": [
+        {
+          "uuid": "10e1bb37-9435-47c8-b5bc-9dac02cdaae9",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\dist\\assets\\{{urlParam 'assetName'}}",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "5603cfc8-1b28-4392-991d-2d09eef08565"
+    },
+    {
+      "type": "route",
+      "uuid": "a754637d-9b2d-4478-8834-d706b8803352"
+    },
+    {
+      "type": "route",
+      "uuid": "1212c896-2a38-4a84-ba30-90d8ab63fc55"
+    },
+    {
+      "type": "route",
+      "uuid": "05ec23b3-c7dd-4283-9caf-c3e295ae5444"
+    },
+    {
+      "type": "route",
+      "uuid": "3c375db2-b149-4a38-b04c-60619151b586"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    },
+    {
+      "key": "Access-Control-Expose-Headers",
+      "value": "*"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "76a94961-0e01-4c71-8e56-44c7e56d714f",
+      "id": "cwzv",
+      "name": "Slides",
+      "documentation": "",
+      "value": "[\n  {\"id\": \"slide-1.md\"},\n  {\"id\": \"slide-2.md\"}\n]"
+    }
+  ]
+}
