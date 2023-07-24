@@ -28,10 +28,10 @@ jobs:
           data-file: "./mockoon/file-test.json"
           # port, default to 3000
           port: 3001
-      - name: Run dev server
-        run: npm run dev
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Build
+        run: npm run build
+      - name: Preview build and run Playwright tests
+        run: npm run preview && npx playwright test
       - uses: actions/upload-artifact@v3
         if: always()
         with:
