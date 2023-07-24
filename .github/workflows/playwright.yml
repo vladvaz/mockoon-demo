@@ -25,7 +25,7 @@ jobs:
           # Mockoon CLI version, default to 'latest'
           version: "latest"
           # Mockoon local data file or URL
-          data-file: "../mockoon/file-test.json"
+          data-file: "./mockoon/file-test.json"
           # port, default to 3000
           port: 3001
       - name: Run dev server
