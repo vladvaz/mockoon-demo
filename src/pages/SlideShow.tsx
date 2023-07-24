@@ -64,7 +64,7 @@ const SlideShow = () => {
 
   return (
     <Stack gap={3} className="mt-3 mx-auto">
-      <Pagination size="sm">{setPaginationControlls(activeItem, totalItems)}</Pagination>
+      <Pagination size="sm" data-testid="pagination-controls">{setPaginationControlls(activeItem, totalItems)}</Pagination>
       <div>
         <ReactMarkdown children={markdownContent} rehypePlugins={[rehypeRaw]} />
       </div>
