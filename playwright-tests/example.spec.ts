@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const pageUrl = 'http://localhost:5173';
+const pageUrl = 'http://localhost:4173';
 
 test('has 5 slides to show', async ({ page }) => {
   await page.goto(pageUrl);
