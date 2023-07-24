@@ -1,17 +1,17 @@
-# A demo of `react-markdown`
+# A demo of `Mockoon`
 
-`react-markdown` is a markdown component for React.
-
-👉 Changes are re-rendered as you type.
-
-👈 Try writing some markdown on the left.
+`Mockoon` is an application to create REST mock API's.
 
 ## Overview
 
-* Follows [CommonMark](https://commonmark.org)
-* Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
-* Renders actual React elements instead of using `dangerouslySetInnerHTML`
-* Lets you define your own components (to render `MyHeading` instead of `h1`)
-* Has a lot of plugins
+* Easy-to-use interface;
+* Has a __CLI__ option that can be used everywhere;
+* Compatible with the __OpenAPI__ specification;
+* Advanced fetaures like HTTP requests recording, proxying, integration testing, etc;
+* Custom statuses, route and global headers, file serving or body editor, HTTPS, etc;
+* Simulate real-life scenarios with dynamic templating and the response rules system;
+* Test your app resilience with sequential and random responses;
+* Integrate Mockoon with existing backends and APIs by intercepting selected endpoints and forwarding the rest;
+* Debug intricated situation with the built-in session recording;
+* Use the __CLI__ and the __Docker image__ to run your mock REST APIs on servers and headless environments: __GitHub Actions__, __CircleCI__, __TravisCI__, etc.
 
-![File route](http://localhost:3001/image/file-route.png) 

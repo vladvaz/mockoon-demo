@@ -1,6 +1,7 @@
-# A demo of `react-markdown`
+# `User interface`
 
+The UI in Mockoon helps in the fast creation and customisation of REST API´s endpoints and rules.
 
-## Page 2
+## General view
 
- <iframe src="http://localhost:3001/dist" title="Inception"></iframe> 
+![File route](http://localhost:3001/image/file-route.png) 

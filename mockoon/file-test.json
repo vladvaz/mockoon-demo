@@ -1,12 +1,43 @@
 {
   "uuid": "eb8d8703-5b9d-419e-ad98-ce23c3006cdb",
   "lastMigration": 27,
-  "name": "File test",
+  "name": "Mockoon-demo",
   "endpointPrefix": "",
   "latency": 0,
   "port": 3001,
   "hostname": "",
-  "folders": [],
+  "folders": [
+    {
+      "uuid": "56091184-a895-495a-a1a2-4344963f5973",
+      "name": "Login demo",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "b3b47b0f-5499-4af0-a0b9-6a4cdab221e7"
+        },
+        {
+          "type": "route",
+          "uuid": "c8f2ab55-c841-4404-8498-923a84a5c652"
+        },
+        {
+          "type": "route",
+          "uuid": "4af95f4e-e467-4c3f-9db9-83b54bfc6b5e"
+        }
+      ]
+    },
+    {
+      "uuid": "e3211a70-a570-44a0-bf64-b1093594c944",
+      "name": "Todos demo",
+      "collapsed": true,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "fd33ab37-d860-4a45-b39e-25f112b63872"
+        }
+      ]
+    }
+  ],
   "routes": [
     {
       "uuid": "5603cfc8-1b28-4392-991d-2d09eef08565",
@@ -23,13 +54,13 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\markdown\\{{urlParam 'fileName'}}",
+          "filePath": "../markdown/{{urlParam 'fileName'}}",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false,
+          "fallbackTo404": true,
           "default": true
         }
       ],
@@ -51,13 +82,13 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\markdown\\images\\{{urlParam 'imageName'}}",
+          "filePath": "../markdown/images/{{urlParam 'imageName'}}",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false,
+          "fallbackTo404": true,
           "default": true
         }
       ],
@@ -93,23 +124,93 @@
       "responseMode": null
     },
     {
-      "uuid": "05ec23b3-c7dd-4283-9caf-c3e295ae5444",
+      "uuid": "b3b47b0f-5499-4af0-a0b9-6a4cdab221e7",
       "type": "http",
-      "documentation": "",
-      "method": "get",
-      "endpoint": "dist",
+      "documentation": "Login route. Expects an email and a password.",
+      "method": "post",
+      "endpoint": "login",
       "responses": [
         {
-          "uuid": "20762e84-201a-4040-b799-e46d72f99b45",
+          "uuid": "0a53004e-0db4-4a7b-a7d5-e7a8be3c0926",
+          "body": "{\n  \"status\": \"Ok\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "User inserted valid credentials.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "email",
+              "value": "mock@me.com",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "pass",
+              "value": "qwerty",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "87230ebe-d275-4467-8b60-e05d2b1a8dba",
+          "body": "{\n  \"status\": \"Credentials not valid\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "User inserted invalid credentials.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "fd33ab37-d860-4a45-b39e-25f112b63872",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "todos",
+      "responses": [
+        {
+          "uuid": "e04dae5c-e466-4a08-bfc1-aa2c475fa695",
           "body": "{}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
           "headers": [],
-          "bodyType": "FILE",
-          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\dist\\index.html",
-          "databucketID": "",
-          "sendFileAsBody": true,
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "o6z0",
+          "sendFileAsBody": false,
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
@@ -121,23 +222,51 @@
       "responseMode": null
     },
     {
-      "uuid": "3c375db2-b149-4a38-b04c-60619151b586",
+      "uuid": "4af95f4e-e467-4c3f-9db9-83b54bfc6b5e",
       "type": "http",
-      "documentation": "",
+      "documentation": "Serve demo app",
       "method": "get",
-      "endpoint": "assets/:assetName",
+      "endpoint": "demos/login/:filePath([a-z][a-z-]*)",
       "responses": [
         {
-          "uuid": "10e1bb37-9435-47c8-b5bc-9dac02cdaae9",
+          "uuid": "fe30366f-6930-4668-a561-e15e5c17f41c",
+          "body": "{\n  \"path\": {{urlParam 'filePath'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "../demos/login/{{urlParam 'filePath'}}",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c8f2ab55-c841-4404-8498-923a84a5c652",
+      "type": "http",
+      "documentation": "Serve demo app",
+      "method": "get",
+      "endpoint": "demos/login",
+      "responses": [
+        {
+          "uuid": "23873597-ef34-4dd0-a0fb-db9381140606",
           "body": "{}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "C:\\Users\\vladv\\CS\\Mockoon\\mockoon-demo\\dist\\assets\\{{urlParam 'assetName'}}",
+          "filePath": "../demos/login/index.html",
           "databucketID": "",
-          "sendFileAsBody": false,
+          "sendFileAsBody": true,
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
@@ -163,12 +292,12 @@
       "uuid": "1212c896-2a38-4a84-ba30-90d8ab63fc55"
     },
     {
-      "type": "route",
-      "uuid": "05ec23b3-c7dd-4283-9caf-c3e295ae5444"
+      "type": "folder",
+      "uuid": "56091184-a895-495a-a1a2-4344963f5973"
     },
     {
-      "type": "route",
-      "uuid": "3c375db2-b149-4a38-b04c-60619151b586"
+      "type": "folder",
+      "uuid": "e3211a70-a570-44a0-bf64-b1093594c944"
     }
   ],
   "proxyMode": false,
@@ -224,7 +353,7 @@
       "id": "cwzv",
       "name": "Slides",
       "documentation": "",
-      "value": "[\n  {\"id\": \"slide-1.md\"},\n  {\"id\": \"slide-2.md\"}\n]"
+      "value": "[\n  {\"id\": \"slide-1.md\"},\n  {\"id\": \"slide-2.md\"},\n  {\"id\": \"slide-3.md\"},\n  {\"id\": \"slide-4.md\"},\n  {\"id\": \"slide-5.md\"}\n]"
     }
   ]
 }

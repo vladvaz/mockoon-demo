@@ -7,14 +7,28 @@ import Stack from 'react-bootstrap/esm/Stack';
 const urlFile = 'http://localhost:3001/file/';
 const urlSlides = 'http://localhost:3001/slides/';
 
-const MdTest = () => {
+const SlideShow = () => {
   const [markdownContent, setMarkdownContent] = useState("");
   const [slideFileName, setSlideFileName] = useState("");
   const [activeItem, setActiveItem] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
 
+
+  function onPreviousEvent(): void {
+    if (activeItem > 1) {
+      setActiveItem(activeItem - 1);
+    }
+  }
+
+  function onNextEvent(): void {
+    if (activeItem < totalItems) {
+      setActiveItem(activeItem + 1);
+    }
+  }
+
   const setPaginationControlls = (activeItem: number, totalItems: number) => {
-    let items = [];
+    const items = [];
+    items.push(<Pagination.Prev key={0} onClick={onPreviousEvent} />);
     for (let number = 1; number <= totalItems; number++) {
       items.push(
         <Pagination.Item
@@ -25,6 +39,7 @@ const MdTest = () => {
         </Pagination.Item>,
       );
     }
+    items.push(<Pagination.Next key={totalItems + 1} onClick={onNextEvent} />);
     return items;
   };
 
@@ -58,4 +73,4 @@ const MdTest = () => {
   );
 };
 
-export default MdTest;
+export default SlideShow;

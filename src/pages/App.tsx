@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/esm/Container";
-import MdTest from "./MdTest";
+import SlideShow from "./SlideShow";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
@@ -8,7 +8,7 @@ const App = () => {
     <Container>
       <Row>
         <Col>
-          <MdTest />
+          <SlideShow />
         </Col>
       </Row>
     </Container>
