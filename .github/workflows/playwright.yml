@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Preview build and run Playwright tests
-        run: npm run preview && npx playwright test
+        run: npm run preview & npx playwright test
       - uses: actions/upload-artifact@v3
         if: always()
         with:
